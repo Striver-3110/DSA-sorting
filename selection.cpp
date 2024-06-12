@@ -59,7 +59,7 @@ int main(){
             min_i = j;
         }
         if(min_i != i)
-        swapi(&v[min_i],&v[i]);
+            swapi(&v[min_i],&v[i]);
     }
     // std:: vi :: iterator it = v.begin();
     for(auto it = v.begin(); it!= v.end(); it++){

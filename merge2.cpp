@@ -8,8 +8,15 @@ using namespace std;
 
 void merge(vl &v, int s, int mid, int e)
 {
+    // [0,1,2,3,4]=> mid = 2, s = 0, e = 4;
+    // n1, n2 are length of left and right sub array respectively
+    // L = [0,1,2]  => n1 = 3;
+
     int n1 = mid - s + 1; // length for left sub array
+
+    // R = [3,4] => n2 = 2;
     int n2 = e - mid;
+
     vl L, R;
     for (int i = 0; i < n1; i++)
     {
@@ -19,14 +26,18 @@ void merge(vl &v, int s, int mid, int e)
     {
         R.pb(v[mid + i + 1]);
     }
+    // L = [0,1,2] 
+    // R = [3,4]
     int i = 0; // for L subArray
     int j = 0; // for R subArray
+
     int k = s; // for v // original array
+    
     while (i < n1 && j < n2)
     {
         if (L[i] <= R[j])
         {
-            v[k++] = L[i++];
+            v[k++] = L[i++];// ascending order sorting
         }
         else
         {

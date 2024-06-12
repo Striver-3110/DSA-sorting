@@ -3,11 +3,11 @@ using namespace std;
 #define ll long long
 #define pb(a) push_back(a);
 void swap(ll *a, ll *b){ll temp = *a;*a = *b; *b = temp;}
-int partition(vector<ll>& v, int s, int e){
+int partition(vector <ll> & v, int s, int e){
     int lb = s;int ub = e;
     ll pivot = v[s];
     while(lb < ub){
-        while(v[lb] <= pivot){lb++;}
+        while(v[lb] <= pivot){lb++;}// inplace = false
         while(v[ub] > pivot){ub--;}
         if(lb < ub) swap(&v[lb], &v[ub]);
     }
@@ -32,4 +32,7 @@ int main(){
     quickSort(v,0,n-1);
     ed = clock();
     printf("\ntime taken is: %f seconds\n", (double)(ed - st) / CLOCKS_PER_SEC);
+    for(int i = 0; i< n; i++){
+        cout<<v[i]<<" ";
+    }
 }
